@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     view.horizontalHeader()->setVisible(false);
     view.verticalHeader()->setVisible(false);
 
-    MillionRows model(nullptr);
+    MillionRows model(Q_NULLPTR);
 
     view.setModel(&model);
     view.setAlternatingRowColors(true);

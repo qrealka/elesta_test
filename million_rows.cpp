@@ -17,7 +17,7 @@ QModelIndex MillionRows::index(int row, int column, const QModelIndex& parent) c
 {
     Q_UNUSED(parent);
     return column == 0 && row >= 0 && row < RowCount
-            ? QAbstractItemModel::createIndex(row, column, nullptr)
+            ? QAbstractItemModel::createIndex(row, column, Q_NULLPTR)
             : QModelIndex();
 }
 
