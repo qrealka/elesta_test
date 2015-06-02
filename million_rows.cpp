@@ -9,8 +9,7 @@ QModelIndex MillionRows::parent(const QModelIndex& index) const
 {
     Q_UNUSED(index);
 
-    static const QModelIndex noParent;
-    return noParent;
+    return m_emptyIndex;
 }
 
 QModelIndex MillionRows::index(int row, int column, const QModelIndex& parent) const
@@ -18,7 +17,7 @@ QModelIndex MillionRows::index(int row, int column, const QModelIndex& parent) c
     Q_UNUSED(parent);
     return column == 0 && row >= 0 && row < RowCount
             ? QAbstractItemModel::createIndex(row, column, Q_NULLPTR)
-            : QModelIndex();
+            : m_emptyIndex;
 }
 
 int MillionRows::rowCount(const QModelIndex & parent) const
@@ -41,6 +40,6 @@ QVariant MillionRows::data(const QModelIndex &index, int role) const
      */
     return role == Qt::DisplayRole
             ? QString::number(index.row() + 1)
-            : QVariant();
+            : m_emptyVariant;
 }
 

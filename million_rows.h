@@ -20,6 +20,9 @@ private:
     virtual int rowCount(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
     virtual int columnCount(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
     virtual QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const Q_DECL_OVERRIDE;
+private:
+    const QModelIndex m_emptyIndex;
+    const QVariant m_emptyVariant;
 };
 
 #endif // MILLIONROWS_H
