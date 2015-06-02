@@ -2,6 +2,7 @@
 
 MillionRows::MillionRows(QObject *parent)
     : QAbstractItemModel(parent)
+    , m_data(1)
 {
 }
 
@@ -38,8 +39,12 @@ QVariant MillionRows::data(const QModelIndex &index, int role) const
      * DON'T use Qt::BackgroundRole & Qt::SizeHintRole.
      * Iti is only DATA model not ViewModel
      */
-    return role == Qt::DisplayRole
-            ? QString::number(index.row() + 1)
-            : m_emptyVariant;
+    if (role == Qt::DisplayRole)
+    {
+        m_data.setValue(index.row() + 1);
+        return m_data;
+    }
+
+    return m_emptyVariant;
 }
 

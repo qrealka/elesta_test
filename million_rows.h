@@ -23,6 +23,7 @@ private:
 private:
     const QModelIndex m_emptyIndex;
     const QVariant m_emptyVariant;
+    mutable QVariant m_data; // just hack to reduce amount QVariant
 };
 
 #endif // MILLIONROWS_H
